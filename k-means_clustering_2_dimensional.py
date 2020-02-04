@@ -83,8 +83,8 @@ while e < 20:
     concat_y = concat.groupby('cluster').agg({'y':['mean']})
     new_centroids = np.concatenate((concat_x,concat_y),axis=1)
 
-    # cash old centroids
-    cash = carr
+    # cache old centroids
+    cache = carr
 
     # overwrite old centroids
     carr = new_centroids
@@ -93,7 +93,7 @@ while e < 20:
     e += 1
 
     # stop loop if centroids no longer change
-    if cash[0,0]==carr[0,0]:
+    if cache[0,0]==carr[0,0]:
         break
 
     # print the data with assigned clusters
